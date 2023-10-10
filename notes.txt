@@ -1,0 +1,24 @@
+This file notes down some weird things I discovered.
+
+New Bug 1:
+    Howto reproduce bug (be sure to refresh the page): 
+    1. First select an employee from the dropdown
+    2. Then after the filter loads, select another employee
+
+    Expected Behavior: After each selection the transactions should be loading.
+    Actual Behavior: Only after step 1 will the transactions go through a loading phase. Performing step 2 and selecting another employee will not
+    cause the transactions to go through a loading phase. Instead the transactions on the page are just replaced all of a sudden without indication of any loading happening.
+    
+    I implemented a fix for this bug so to reproduce do it on the original application.
+
+New Bug 2:
+    Howto reproduce bug (be sure to refresh the page): 
+    1. Select an employee from the dropdown before the transactions for all employees loading
+
+    Expected Behavior: There could be many behaviors but a simple one is that a user
+    shouldn't be able to select another employee while transactions are loading
+
+    Actual behavior: Filter by employee has the name of the employee selected however the transactions
+    are for all employees so the filter is misleading.
+
+    I did not implement a fix for this as it may break test cases.
